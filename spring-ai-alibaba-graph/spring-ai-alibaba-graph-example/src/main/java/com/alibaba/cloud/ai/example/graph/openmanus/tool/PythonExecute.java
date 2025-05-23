@@ -15,6 +15,11 @@
  */
 package com.alibaba.cloud.ai.example.graph.openmanus.tool;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import java.util.function.BiFunction;
+
 import com.alibaba.cloud.ai.example.graph.openmanus.tool.support.CodeExecutionResult;
 import com.alibaba.cloud.ai.example.graph.openmanus.tool.support.CodeUtils;
 import com.alibaba.cloud.ai.example.graph.openmanus.tool.support.ToolExecuteResult;
@@ -22,16 +27,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.ai.chat.memory.InMemoryChatMemory;
+
 import org.springframework.ai.chat.model.ToolContext;
 import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.ai.tool.function.FunctionToolCallback;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-import java.util.function.BiFunction;
 
 public class PythonExecute implements BiFunction<String, ToolContext, ToolExecuteResult> {
 
@@ -76,10 +76,8 @@ public class PythonExecute implements BiFunction<String, ToolContext, ToolExecut
 			.build();
 	}
 
-	private InMemoryChatMemory chatMemory;
-
 	public ToolExecuteResult run(String toolInput) {
-		log.info("PythonExecute toolInput:" + toolInput);
+		log.info("PythonExecute toolInput:{}", toolInput);
 		Map<String, Object> toolInputMap = JSON.parseObject(toolInput, new TypeReference<Map<String, Object>>() {
 		});
 		String code = (String) toolInputMap.get("code");

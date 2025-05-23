@@ -16,7 +16,6 @@
 package com.alibaba.cloud.ai.example.manus.dynamic.mcp.controller;
 
 import com.alibaba.cloud.ai.example.manus.dynamic.mcp.model.po.McpConfigEntity;
-import com.alibaba.cloud.ai.example.manus.dynamic.mcp.model.po.McpConfigType;
 import com.alibaba.cloud.ai.example.manus.dynamic.mcp.model.vo.McpConfigRequestVO;
 import com.alibaba.cloud.ai.example.manus.dynamic.mcp.model.vo.McpConfigVO;
 import com.alibaba.cloud.ai.example.manus.dynamic.mcp.service.McpService;
@@ -26,6 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +33,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 
 @RestController
@@ -101,11 +100,20 @@ public class McpController {
 
 	/**
 	 * Remove MCP Server
-	 * @param mcpServerName MCP Server Name
+	 * @param id MCP Config ID
 	 */
 	@GetMapping("/remove")
-	public ResponseEntity<String> remove(@RequestParam("id") long id) throws IOException {
+	public ResponseEntity<String> remove(@RequestParam(name = "id") long id) throws IOException {
 		mcpService.removeMcpServer(id);
+		return ResponseEntity.ok("Success");
+	}
+
+	/**
+	 * remove mcp server by name
+	 */
+	@PostMapping("/remove/{name}")
+	public ResponseEntity<String> removeByName(@PathVariable("name") String mcpServerName) throws IOException {
+		mcpService.removeMcpServer(mcpServerName);
 		return ResponseEntity.ok("Success");
 	}
 

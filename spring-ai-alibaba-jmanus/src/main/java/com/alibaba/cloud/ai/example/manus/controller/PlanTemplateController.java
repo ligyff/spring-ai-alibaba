@@ -40,11 +40,8 @@ import com.alibaba.cloud.ai.example.manus.planning.coordinator.PlanningCoordinat
 import com.alibaba.cloud.ai.example.manus.planning.model.po.PlanTemplate;
 import com.alibaba.cloud.ai.example.manus.planning.model.vo.ExecutionContext;
 import com.alibaba.cloud.ai.example.manus.planning.model.vo.ExecutionPlan;
-import com.alibaba.cloud.ai.example.manus.planning.model.vo.ExecutionStep;
 import com.alibaba.cloud.ai.example.manus.planning.service.PlanTemplateService;
 import com.alibaba.cloud.ai.example.manus.recorder.PlanExecutionRecorder;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * 计划模板控制器，处理计划模板页面的API请求
@@ -156,8 +153,9 @@ public class PlanTemplateController {
 	 * @return 结果状态
 	 */
 	@GetMapping("/execute/{planTemplateId}")
-	public ResponseEntity<Map<String, Object>> executePlanByTemplateIdGet(@PathVariable String planTemplateId,
-			@RequestParam(required = false) Map<String, String> allParams) {
+	public ResponseEntity<Map<String, Object>> executePlanByTemplateIdGet(
+			@PathVariable("planTemplateId") String planTemplateId,
+			@RequestParam(required = false, name = "allParams") Map<String, String> allParams) {
 		if (planTemplateId == null || planTemplateId.trim().isEmpty()) {
 			return ResponseEntity.badRequest().body(Map.of("error", "计划模板ID不能为空"));
 		}

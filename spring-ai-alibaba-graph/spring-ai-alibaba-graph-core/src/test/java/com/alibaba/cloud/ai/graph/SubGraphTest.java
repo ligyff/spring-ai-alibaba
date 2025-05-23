@@ -20,6 +20,7 @@ import com.alibaba.cloud.ai.graph.action.AsyncNodeActionWithConfig;
 import com.alibaba.cloud.ai.graph.checkpoint.config.SaverConfig;
 import com.alibaba.cloud.ai.graph.checkpoint.constant.SaverConstant;
 import com.alibaba.cloud.ai.graph.checkpoint.savers.MemorySaver;
+import com.alibaba.cloud.ai.graph.exception.GraphStateException;
 import com.alibaba.cloud.ai.graph.state.AppenderChannel;
 import com.alibaba.cloud.ai.graph.state.strategy.AppendStrategy;
 import org.junit.jupiter.api.BeforeAll;
@@ -57,7 +58,12 @@ public class SubGraphTest {
 	}
 
 	private List<String> _execute(CompiledGraph workflow, Map<String, Object> input) throws Exception {
-		return workflow.stream().stream().peek(System.out::println).map(NodeOutput::node).toList();
+		return workflow
+			.stream(workflow.stateGraph.getOverAllState(), RunnableConfig.builder().threadId("SubGraphTest").build())
+			.stream()
+			.peek(System.out::println)
+			.map(NodeOutput::node)
+			.toList();
 	}
 
 	private static void removeFromList(List<Object> result, AppenderChannel.RemoveIdentifier<Object> removeIdentifier) {

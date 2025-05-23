@@ -10,7 +10,7 @@ spring:
       api-key: sk-aa6bdfe600d248a18ec51723edd26956
       chat:
         options:
-          model: qwen-max-latest
+          model: qwen-plus-latest
     mcp:
       client:
         enabled: false
@@ -34,3 +34,8 @@ spring:
     console:
       enabled: true
       path: /h2-console
+logging:
+  file:
+    name: ./logs/info.log
+  level:
+    root: INFO
