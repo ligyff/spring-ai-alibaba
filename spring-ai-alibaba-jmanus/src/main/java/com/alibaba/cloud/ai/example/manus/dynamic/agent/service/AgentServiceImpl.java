@@ -53,16 +53,16 @@ public class AgentServiceImpl implements AgentService {
 	private final PlanningFactory planningFactory;
 
 	@Autowired
-	@Lazy
+
 	private LlmService llmService;
 
 	@Autowired
-	@Lazy
+
 	private ToolCallingManager toolCallingManager;
 
 	@Autowired
-	public AgentServiceImpl(@Lazy DynamicAgentLoader dynamicAgentLoader, DynamicAgentRepository repository,
-			@Lazy PlanningFactory planningFactory) {
+	public AgentServiceImpl( DynamicAgentLoader dynamicAgentLoader, DynamicAgentRepository repository,
+			 PlanningFactory planningFactory) {
 		this.dynamicAgentLoader = dynamicAgentLoader;
 		this.repository = repository;
 		this.planningFactory = planningFactory;

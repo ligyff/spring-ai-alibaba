@@ -36,7 +36,7 @@ public class QueryCommandRunner implements CommandLineRunner {
 	private static final Logger logger = LoggerFactory.getLogger(QueryCommandRunner.class);
 
 	@Autowired
-	@Lazy
+
 	private PlanningFactory planningFactory;
 
 	@Autowired

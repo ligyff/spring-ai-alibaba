@@ -27,7 +27,7 @@ import com.alibaba.cloud.ai.example.manus.config.entity.ConfigInputType;
 @ConfigurationProperties(prefix = "manus")
 public class ManusProperties {
 
-	@Lazy
+
 	@Autowired
 	private ConfigService configService;
 

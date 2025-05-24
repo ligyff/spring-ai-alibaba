@@ -53,7 +53,7 @@ public class PlanTemplateController {
 	private static final Logger logger = LoggerFactory.getLogger(PlanTemplateController.class);
 
 	@Autowired
-	@Lazy
+
 	private PlanningFactory planningFactory;
 
 	@Autowired

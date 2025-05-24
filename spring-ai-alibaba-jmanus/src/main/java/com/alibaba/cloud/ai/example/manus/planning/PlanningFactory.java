@@ -91,11 +91,11 @@ public class PlanningFactory {
 	private ConcurrentHashMap<String, PlanningCoordinator> flowMap = new ConcurrentHashMap<>();
 
 	@Autowired
-	@Lazy
+
 	private LlmService llmService;
 
 	@Autowired
-	@Lazy
+
 	private ToolCallingManager toolCallingManager;
 
 	@Autowired
