@@ -25,7 +25,6 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.ai.chat.model.ToolContext;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.tool.function.FunctionToolCallback;
 
 public class PythonExecute implements ToolCallBiFunctionDef {
@@ -63,11 +62,11 @@ public class PythonExecute implements ToolCallBiFunctionDef {
 			Executes Python code string. Note: Only print outputs are visible, function return values are not captured. Use print statements to see results.
 			""";
 
-	public static OpenAiApi.FunctionTool getToolDefinition() {
+	/*public static OpenAiApi.FunctionTool getToolDefinition() {
 		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
 		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
 		return functionTool;
-	}
+	}*/
 
 	public static FunctionToolCallback getFunctionToolCallback() {
 		return FunctionToolCallback.builder(name, new PythonExecute())

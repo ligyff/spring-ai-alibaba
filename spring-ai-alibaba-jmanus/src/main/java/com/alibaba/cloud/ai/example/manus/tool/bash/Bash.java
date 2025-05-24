@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.ai.chat.model.ToolContext;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.tool.function.FunctionToolCallback;
 
 public class Bash implements ToolCallBiFunctionDef {
@@ -67,11 +66,11 @@ public class Bash implements ToolCallBiFunctionDef {
 					""",
 			osName);
 
-	public OpenAiApi.FunctionTool getToolDefinition() {
+	/*public OpenAiApi.FunctionTool getToolDefinition() {
 		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
 		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
 		return functionTool;
-	}
+	}*/
 
 	public FunctionToolCallback getFunctionToolCallback(String workingDirectoryPath) {
 		return FunctionToolCallback.builder(name, new Bash(workingDirectoryPath))

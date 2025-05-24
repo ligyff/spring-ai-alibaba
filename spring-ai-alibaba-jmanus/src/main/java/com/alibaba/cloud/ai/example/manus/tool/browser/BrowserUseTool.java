@@ -44,7 +44,6 @@ import java.util.Map;
 import java.util.HashMap;
 
 import org.springframework.ai.chat.model.ToolContext;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.tool.function.FunctionToolCallback;
 
 public class BrowserUseTool implements ToolCallBiFunctionDef {
@@ -187,11 +186,11 @@ public class BrowserUseTool implements ToolCallBiFunctionDef {
 			- 'move_to_and_click'：移动到指定的绝对位置(x,y)并点击
 			""";
 
-	public OpenAiApi.FunctionTool getToolDefinition() {
+	/*public OpenAiApi.FunctionTool getToolDefinition() {
 		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
 		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
 		return functionTool;
-	}
+	}*/
 
 	public static synchronized BrowserUseTool getInstance(ChromeDriverService chromeDriverService) {
 		BrowserUseTool instance = new BrowserUseTool(chromeDriverService);

@@ -27,7 +27,6 @@ import com.alibaba.fastjson.TypeReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.model.ToolContext;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.tool.function.FunctionToolCallback;
 
 public class TextFileOperator implements ToolCallBiFunctionDef {
@@ -96,12 +95,13 @@ public class TextFileOperator implements ToolCallBiFunctionDef {
 			- 以及更多基于文本的文件类型
 			""";
 
-	public OpenAiApi.FunctionTool getToolDefinition() {
-		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(TOOL_DESCRIPTION, TOOL_NAME,
-				PARAMETERS);
-		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
-		return functionTool;
-	}
+//	public OpenAiApi.FunctionTool getToolDefinition() {
+//
+//		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(TOOL_DESCRIPTION, TOOL_NAME,
+//				PARAMETERS);
+//		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
+//		return functionTool;
+//	}
 
 	public FunctionToolCallback getFunctionToolCallback(String workingDirectoryPath, TextFileService textFileService) {
 		return FunctionToolCallback.builder(TOOL_NAME, new TextFileOperator(workingDirectoryPath, textFileService))

@@ -5,11 +5,11 @@ spring:
   application:
     name: spring-ai-alibaba-openmanus
   ai:
-    openai:
+    ollama:
       base-url: http://localhost:11434
       chat:
         options:
-          model: gemma3:4b-it-qat
+          model: qwen3:4b
     mcp:
       client:
         enabled: false
@@ -24,7 +24,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
@@ -39,4 +39,4 @@ logging:
   file:
     name: ./logs/info.log
   level:
-    root: INFO
+    root: debug

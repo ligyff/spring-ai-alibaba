@@ -21,7 +21,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.ai.chat.model.ToolContext;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.tool.function.FunctionToolCallback;
 import org.springframework.ai.tool.metadata.ToolMetadata;
 
@@ -59,10 +58,10 @@ public class TerminateTool implements ToolCallBiFunctionDef {
 
 			""";
 
-	public static OpenAiApi.FunctionTool getToolDefinition() {
+	/*public static OpenAiApi.FunctionTool getToolDefinition() {
 		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
 		return new OpenAiApi.FunctionTool(function);
-	}
+	}*/
 
 	public static FunctionToolCallback getFunctionToolCallback(String planId) {
 		return FunctionToolCallback.builder(name, new TerminateTool(planId))

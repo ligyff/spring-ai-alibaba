@@ -20,7 +20,6 @@ import com.alibaba.cloud.ai.example.manus.planning.model.vo.ExecutionStep;
 import com.alibaba.cloud.ai.example.manus.tool.code.ToolExecuteResult;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.TypeReference;
-import org.springframework.ai.openai.api.OpenAiApi.FunctionTool;
 import org.springframework.ai.tool.function.FunctionToolCallback;
 import org.springframework.ai.tool.metadata.ToolMetadata;
 import org.slf4j.Logger;
@@ -90,9 +89,9 @@ public class PlanningTool implements Function<String, ToolExecuteResult> {
 
 	private static final String description = "Planning tool for managing tasks ";
 
-	public FunctionTool getToolDefinition() {
+	/*public FunctionTool getToolDefinition() {
 		return new FunctionTool(new FunctionTool.Function(description, name, PARAMETERS));
-	}
+	}*/
 
 	public FunctionToolCallback getFunctionToolCallback() {
 		return FunctionToolCallback.builder(name, this)

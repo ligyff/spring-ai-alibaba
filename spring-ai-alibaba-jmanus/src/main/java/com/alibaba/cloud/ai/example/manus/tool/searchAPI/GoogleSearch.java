@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.springframework.ai.chat.model.ToolContext;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.tool.function.FunctionToolCallback;
 
 public class GoogleSearch implements ToolCallBiFunctionDef {
@@ -63,11 +62,11 @@ public class GoogleSearch implements ToolCallBiFunctionDef {
 			The tool returns a list of URLs that match the search query.
 			""";
 
-	public static OpenAiApi.FunctionTool getToolDefinition() {
+	/*public static OpenAiApi.FunctionTool getToolDefinition() {
 		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
 		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
 		return functionTool;
-	}
+	}*/
 
 	public static FunctionToolCallback getFunctionToolCallback() {
 		return FunctionToolCallback.builder(name, new GoogleSearch())
