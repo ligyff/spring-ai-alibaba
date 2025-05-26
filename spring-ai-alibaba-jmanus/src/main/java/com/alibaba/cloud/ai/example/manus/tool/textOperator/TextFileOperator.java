@@ -95,13 +95,14 @@ public class TextFileOperator implements ToolCallBiFunctionDef {
 			- 以及更多基于文本的文件类型
 			""";
 
-//	public OpenAiApi.FunctionTool getToolDefinition() {
-//
-//		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(TOOL_DESCRIPTION, TOOL_NAME,
-//				PARAMETERS);
-//		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
-//		return functionTool;
-//	}
+	// public OpenAiApi.FunctionTool getToolDefinition() {
+	//
+	// OpenAiApi.FunctionTool.Function function = new
+	// OpenAiApi.FunctionTool.Function(TOOL_DESCRIPTION, TOOL_NAME,
+	// PARAMETERS);
+	// OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
+	// return functionTool;
+	// }
 
 	public FunctionToolCallback getFunctionToolCallback(String workingDirectoryPath, TextFileService textFileService) {
 		return FunctionToolCallback.builder(TOOL_NAME, new TextFileOperator(workingDirectoryPath, textFileService))

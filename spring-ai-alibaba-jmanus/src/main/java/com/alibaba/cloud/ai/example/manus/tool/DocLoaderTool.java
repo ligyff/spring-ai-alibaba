@@ -63,11 +63,13 @@ public class DocLoaderTool implements ToolCallBiFunctionDef {
 			This tool accepts the file path and gets the related information content.
 			""";
 
-	/*public static OpenAiApi.FunctionTool getToolDefinition() {
-		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
-		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
-		return functionTool;
-	}*/
+	/*
+	 * public static OpenAiApi.FunctionTool getToolDefinition() {
+	 * OpenAiApi.FunctionTool.Function function = new
+	 * OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
+	 * OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function); return
+	 * functionTool; }
+	 */
 
 	public static FunctionToolCallback getFunctionToolCallback() {
 		return FunctionToolCallback.builder(name, new DocLoaderTool()) // 修改为正确的工具类

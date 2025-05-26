@@ -169,7 +169,7 @@ public class BrowserUseTool implements ToolCallBiFunctionDef {
 	private final String description = """
 			与网页浏览器交互，执行各种操作，如导航、元素交互、内容提取和标签页管理。搜索类优先考虑此工具。
 			支持的操作包括：
-			- 'navigate'：访问特定URL，默认使用https://baidu.com
+			- 'navigate'：访问特定URL，默认使用https://www.baidu.com/s?wd={{###}},{{###}}可以替换成用户的搜索内容
 			- 'click'：按索引点击元素
 			- 'input_text'：在元素中输入文本，对于百度(Baidu)，输入框的索引是
 			- 'key_enter'：按回车键
@@ -186,11 +186,12 @@ public class BrowserUseTool implements ToolCallBiFunctionDef {
 			- 'move_to_and_click'：移动到指定的绝对位置(x,y)并点击
 			""";
 
-	/*public OpenAiApi.FunctionTool getToolDefinition() {
-		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
-		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
-		return functionTool;
-	}*/
+	/*
+	 * public OpenAiApi.FunctionTool getToolDefinition() { OpenAiApi.FunctionTool.Function
+	 * function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
+	 * OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function); return
+	 * functionTool; }
+	 */
 
 	public static synchronized BrowserUseTool getInstance(ChromeDriverService chromeDriverService) {
 		BrowserUseTool instance = new BrowserUseTool(chromeDriverService);

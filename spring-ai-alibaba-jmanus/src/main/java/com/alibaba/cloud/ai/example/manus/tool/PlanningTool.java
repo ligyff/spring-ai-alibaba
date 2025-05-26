@@ -89,9 +89,10 @@ public class PlanningTool implements Function<String, ToolExecuteResult> {
 
 	private static final String description = "Planning tool for managing tasks ";
 
-	/*public FunctionTool getToolDefinition() {
-		return new FunctionTool(new FunctionTool.Function(description, name, PARAMETERS));
-	}*/
+	/*
+	 * public FunctionTool getToolDefinition() { return new FunctionTool(new
+	 * FunctionTool.Function(description, name, PARAMETERS)); }
+	 */
 
 	public FunctionToolCallback getFunctionToolCallback() {
 		return FunctionToolCallback.builder(name, this)
@@ -104,6 +105,8 @@ public class PlanningTool implements Function<String, ToolExecuteResult> {
 
 	public ToolExecuteResult run(String toolInput) {
 		try {
+			log.info("收到执行计划工具请求: {}", toolInput);
+
 			Map<String, Object> input = JSON.parseObject(toolInput, new TypeReference<Map<String, Object>>() {
 			});
 			String command = (String) input.get("command");

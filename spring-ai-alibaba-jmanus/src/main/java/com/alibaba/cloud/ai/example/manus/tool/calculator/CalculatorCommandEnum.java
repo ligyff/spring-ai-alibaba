@@ -4,18 +4,17 @@ package com.alibaba.cloud.ai.example.manus.tool.calculator;
  * 计算器操作枚举
  */
 public enum CalculatorCommandEnum {
-    ADDITION("addition"),
-    SUBTRACTION("subtraction"),
-    MULTIPLICATION("multiplication"),
-    DIVISION("division");
 
-    private String value;
+	ADDITION("addition"), SUBTRACTION("subtraction"), MULTIPLICATION("multiplication"), DIVISION("division");
 
-    CalculatorCommandEnum(String value) {
-        this.value = value;
-    }
+	private String value;
 
-    public String getValue() {
-        return value;
-    }
+	CalculatorCommandEnum(String value) {
+		this.value = value;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
 }

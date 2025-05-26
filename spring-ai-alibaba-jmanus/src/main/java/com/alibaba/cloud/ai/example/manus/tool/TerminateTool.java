@@ -58,10 +58,12 @@ public class TerminateTool implements ToolCallBiFunctionDef {
 
 			""";
 
-	/*public static OpenAiApi.FunctionTool getToolDefinition() {
-		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
-		return new OpenAiApi.FunctionTool(function);
-	}*/
+	/*
+	 * public static OpenAiApi.FunctionTool getToolDefinition() {
+	 * OpenAiApi.FunctionTool.Function function = new
+	 * OpenAiApi.FunctionTool.Function(description, name, PARAMETERS); return new
+	 * OpenAiApi.FunctionTool(function); }
+	 */
 
 	public static FunctionToolCallback getFunctionToolCallback(String planId) {
 		return FunctionToolCallback.builder(name, new TerminateTool(planId))

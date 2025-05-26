@@ -61,8 +61,8 @@ public class AgentServiceImpl implements AgentService {
 	private ToolCallingManager toolCallingManager;
 
 	@Autowired
-	public AgentServiceImpl( DynamicAgentLoader dynamicAgentLoader, DynamicAgentRepository repository,
-			 PlanningFactory planningFactory) {
+	public AgentServiceImpl(DynamicAgentLoader dynamicAgentLoader, DynamicAgentRepository repository,
+			PlanningFactory planningFactory) {
 		this.dynamicAgentLoader = dynamicAgentLoader;
 		this.repository = repository;
 		this.planningFactory = planningFactory;

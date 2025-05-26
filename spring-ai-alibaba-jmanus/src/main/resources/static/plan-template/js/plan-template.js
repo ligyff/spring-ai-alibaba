@@ -37,7 +37,7 @@ let rightSidebar;
 // 轮询相关变量
 let pollTimer = null;
 let lastSequenceSize = 0;
-const POLL_INTERVAL = 3000; // 3秒轮询间隔
+const POLL_INTERVAL = 30000; // 30秒轮询间隔
 let isPolling = false;
 
 /**

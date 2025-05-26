@@ -6,6 +6,7 @@ spring:
     name: spring-ai-alibaba-openmanus
   ai:
     ollama:
+#      base-url: http://192.168.3.7:11434
       base-url: http://localhost:11434
       chat:
         options:
@@ -39,4 +40,4 @@ logging:
   file:
     name: ./logs/info.log
   level:
-    root: debug
+    root: info

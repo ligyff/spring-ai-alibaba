@@ -66,11 +66,12 @@ public class Bash implements ToolCallBiFunctionDef {
 					""",
 			osName);
 
-	/*public OpenAiApi.FunctionTool getToolDefinition() {
-		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
-		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
-		return functionTool;
-	}*/
+	/*
+	 * public OpenAiApi.FunctionTool getToolDefinition() { OpenAiApi.FunctionTool.Function
+	 * function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
+	 * OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function); return
+	 * functionTool; }
+	 */
 
 	public FunctionToolCallback getFunctionToolCallback(String workingDirectoryPath) {
 		return FunctionToolCallback.builder(name, new Bash(workingDirectoryPath))

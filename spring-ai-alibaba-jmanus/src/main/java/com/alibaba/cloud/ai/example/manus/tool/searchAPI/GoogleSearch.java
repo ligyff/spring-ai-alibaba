@@ -62,11 +62,13 @@ public class GoogleSearch implements ToolCallBiFunctionDef {
 			The tool returns a list of URLs that match the search query.
 			""";
 
-	/*public static OpenAiApi.FunctionTool getToolDefinition() {
-		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
-		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
-		return functionTool;
-	}*/
+	/*
+	 * public static OpenAiApi.FunctionTool getToolDefinition() {
+	 * OpenAiApi.FunctionTool.Function function = new
+	 * OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
+	 * OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function); return
+	 * functionTool; }
+	 */
 
 	public static FunctionToolCallback getFunctionToolCallback() {
 		return FunctionToolCallback.builder(name, new GoogleSearch())

@@ -62,11 +62,13 @@ public class PythonExecute implements ToolCallBiFunctionDef {
 			Executes Python code string. Note: Only print outputs are visible, function return values are not captured. Use print statements to see results.
 			""";
 
-	/*public static OpenAiApi.FunctionTool getToolDefinition() {
-		OpenAiApi.FunctionTool.Function function = new OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
-		OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function);
-		return functionTool;
-	}*/
+	/*
+	 * public static OpenAiApi.FunctionTool getToolDefinition() {
+	 * OpenAiApi.FunctionTool.Function function = new
+	 * OpenAiApi.FunctionTool.Function(description, name, PARAMETERS);
+	 * OpenAiApi.FunctionTool functionTool = new OpenAiApi.FunctionTool(function); return
+	 * functionTool; }
+	 */
 
 	public static FunctionToolCallback getFunctionToolCallback() {
 		return FunctionToolCallback.builder(name, new PythonExecute())
